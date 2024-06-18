@@ -32,4 +32,4 @@ endpoints:
   # +optional Context (base path) of the API that is exposed via this endpoint.
   # This is mandatory if the endpoint type is set to REST or GraphQL.
   context: /readinglist
-  schema: ./swagger/readinglist.yaml
+  schema: /swagger/readinglist.yaml

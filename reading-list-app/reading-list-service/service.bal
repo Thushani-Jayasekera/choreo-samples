@@ -48,13 +48,13 @@ service /readinglist on new http:Listener(9090) {
         return <http:BadRequest>usersBooks;
     }
 
-    resource function get booksaddition(http:Headers headers) returns Book[]|http:BadRequest|error {
-        map<Book>|http:BadRequest usersBooks = check getUsersBooks(headers);
-        if (usersBooks is map<Book>) {
-            return usersBooks.toArray();
-        }
-        return <http:BadRequest>usersBooks;
-    }
+    // resource function get booksaddition(http:Headers headers) returns Book[]|http:BadRequest|error {
+    //     map<Book>|http:BadRequest usersBooks = check getUsersBooks(headers);
+    //     if (usersBooks is map<Book>) {
+    //         return usersBooks.toArray();
+    //     }
+    //     return <http:BadRequest>usersBooks;
+    // }
 
     resource function post books(http:Headers headers,
             @http:Payload BookItem newBook) returns http:Created|http:BadRequest|error {

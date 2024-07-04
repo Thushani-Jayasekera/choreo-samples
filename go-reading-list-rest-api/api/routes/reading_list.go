@@ -20,9 +20,11 @@ package routes
 
 import (
 	"fmt"
+	"net/http"
+	"os"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/wso2/choreo-sample-apps/go/rest-api/internal/models"
-	"net/http"
 
 	"github.com/wso2/choreo-sample-apps/go/rest-api/internal/utils"
 )
@@ -120,6 +122,10 @@ func DeleteBook(c *fiber.Ctx) error {
 func GetBook(c *fiber.Ctx) error {
 	ctx := utils.GetRequestContext(c)
 	id := c.Params("id")
+
+	serviceURL := os.Getenv("SVC_URL")
+
+	println(`serviceURL: ` + serviceURL)
 
 	book, err := bookController.GetBook(ctx, id)
 	if err != nil {

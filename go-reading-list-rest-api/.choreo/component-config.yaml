@@ -1,0 +1,23 @@
+apiVersion: core.choreo.dev/v1beta1
+kind: ComponentConfig
+spec:
+  inbound:
+    - name: Reading List
+      port: 8080
+      type: REST
+      networkVisibility: Public
+      context: /api/v1/reading-list
+      schemaFilePath: docs/openapi-3.yaml
+  outbound:
+    serviceReferences:
+    - name: choreo:///thushani/websocketproject/websocket5/4096c/v1/PUBLIC
+      connectionConfig: 01ef39cb-c18a-1866-b422-2212d1ea4e13
+      env:
+      - from: ServiceURL
+        to: SVC_URL
+      - from: ConsumerKey
+        to: CONSUMER_KEY
+      - from: ConsumerSecret
+        to: CONSUMER_SECRET
+      - from: TokenURL
+        to: TOKEN_URL

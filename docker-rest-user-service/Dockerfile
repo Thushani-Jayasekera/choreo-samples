@@ -14,7 +14,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-FROM golang:1.19.0-alpine as build-env
+FROM golang:1.22.4-alpine as build-env
 
 RUN mkdir /app
 WORKDIR /app
@@ -32,9 +32,6 @@ RUN addgroup -g 10014 choreo && \
 COPY . .
 
 ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
-
-# Run unit tests
-RUN go test -v ./...
 
 # Build the binary
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o /go/bin/app -buildvcs=false

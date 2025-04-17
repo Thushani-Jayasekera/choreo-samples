@@ -9,12 +9,18 @@ WSO2_SAMPLES_REPO_URL = 'https://github.com/wso2/choreo-samples/'
 VALID_COMPONENT_TYPES = [
     "service", "webhook", "manual-task", "scheduled-task", 
     "event-triggered", "event-handler", "test-runner", "many",
+    "web-application", "git-proxy"
+]
+
+QUICK_DEPLOYABLE_COMPONENT_TYPES = [
+    "service", "manual-task", "scheduled-task", 
     "web-application"
 ]
 
 VALID_BUILD_PACKS = [
     "ballerina", "wso2-mi", "go", "java", "php", "python", "nodejs", "ruby",
-    "vue", "many", "postman", "react", "docker", "angular", "dotnet"
+    "vue", "many", "postman", "react", "docker", "angular", "dotnet", "prism-mock",
+    "none" 
 ]
 
 def validate_component_path(component_path, repository_url):
@@ -48,4 +54,5 @@ def validate_thumbnail(thumbnail_src):
         return False
     return True
 
-
+def is_component_type_quick_deployable(component_type):
+    return component_type in QUICK_DEPLOYABLE_COMPONENT_TYPES

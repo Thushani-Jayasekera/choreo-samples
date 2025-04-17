@@ -1,0 +1,12 @@
+displayName: WebSocket Chat App in NodeJS
+description: WebSocket chat application with a Node.js server and a React client.
+componentType: many
+buildPack: many
+repositoryUrl: https://github.com/wso2/choreo-samples/
+componentPath: /websocket-chat-app
+thumbnailPath: /icons/websocket-chat-app.svg
+documentationPath: /websocket-chat-app/readme.md
+tags:
+  - WebSocket
+  - NodeJS
+  - React
